@@ -142,7 +142,8 @@
         }
       
         document.getElementById("helpbox").onclick = help;
-        function newGame() {
+       
+    function newGame() {
     
     checkCount = 0;
     penalty = 0;
@@ -153,7 +154,6 @@
     treasureLocation = Math.floor(Math.random() * 25);
     trapLocation = Math.floor(Math.random() * 25);
 
-    
     while (trapLocation === treasureLocation) {
       trapLocation = Math.floor(Math.random() * 25);
     }
