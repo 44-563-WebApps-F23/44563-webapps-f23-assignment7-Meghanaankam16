@@ -72,6 +72,8 @@
         <div class="col-sm-2" ><img src="tressure.jpg" id="img24" onclick="check(24)" height="100px" width="100px"></div>
     </div>
 </div>
+<button class="btn btn-success btn-start-timer" onclick="newGame()">New Game</button>
+
 <script>
         var ids = [];
         var checkCount = 0;
@@ -140,7 +142,35 @@
         }
       
         document.getElementById("helpbox").onclick = help;
+        function newGame() {
+    
+    checkCount = 0;
+    penalty = 0;
+    lastCheck = 0;
+    gameOver = false;
 
+    
+    treasureLocation = Math.floor(Math.random() * 25);
+    trapLocation = Math.floor(Math.random() * 25);
+
+    
+    while (trapLocation === treasureLocation) {
+      trapLocation = Math.floor(Math.random() * 25);
+    }
+
+
+    for (let i = 0; i < 25; i++) {
+      const id = `location${i}`;
+      const imageElement = document.getElementById(id);
+      imageElement.src = "starting.jpg";
+      imageElement.style.borderColor = "white";
+    }
+
+
+    document.getElementById("location").innerText = `Number of locations checked is ${checkCount}.`;
+    document.getElementById("penalty").innerText = `Penalty is ${penalty}.`;
+    document.getElementById("help").innerText = "Help report";
+  }
 </script>
 </body>
 </html>
