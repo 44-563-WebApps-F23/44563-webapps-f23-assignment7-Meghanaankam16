@@ -27,7 +27,23 @@
             console.log('React Time:', reactTime);
         }
 
-   
+    function startTime() {
+      for (let i = 0; i < 9; i++) {
+        setTimeout(() => {
+          document.getElementById('counter').innerHTML = i;
+        }, (8 - i) * 1000);
+      }
+
+      setTimeout(() => {
+        if (reactTime === undefined) {
+          document.getElementById('target').innerHTML = 'Too Slow';
+        } else {
+          const endTime = Date.now();
+          const elapsed = endTime - reactTime;
+          document.getElementById('target').innerHTML = 'Time was ' + elapsed + ' milliseconds';
+        }
+      }, 8000);
+    }
 </script>
 </body>
 </html>
